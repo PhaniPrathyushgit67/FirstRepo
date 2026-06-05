@@ -7,6 +7,7 @@ const express = require('express');
 const app = express();
 
 // Middleware to parse JSON bodies
+const verifyToken= "string";
 app.use(express.json());
 
 // Set port and verify_token
