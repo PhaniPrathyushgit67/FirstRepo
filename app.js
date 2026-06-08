@@ -1,40 +1,34 @@
-// Import Express.js
-import express from “express”
-
-const express = require('express');
-
-// Create an Express app
-const app = express();
-
+import express from "express"
+const app = express ()
 // Middleware to parse JSON bodies
-const verifyToken= "string";
-app.use(express.json());
-
+app. use(express.json());
 // Set port and verify_token
-const port = process.env.PORT || 3000;
-const verifyToken = process.env.VERIFY_TOKEN;
-
+const port = process. env. PORT || 3000;
+const verifyToken = "qwerty";
 // Route for GET requests
-app.get('/', (req, res) => {
-  const { 'hub.mode': mode, 'hub.challenge': challenge, 'hub.verify_token': token } = req.query;
-
-  if (mode === 'subscribe' && token === verifyToken) {
-    console.log('WEBHOOK VERIFIED');
-    res.status(200).send(challenge);
-  } else {
-    res.status(403).end();
-  }
-});
-
+const f 'hub.mode': mode,
+"hub. challenge': challenge,
+'hub. verify_token': token } = req-query;
+if (mode
+subscribe' && token === verifyToken) {
+console. log('WEBHOOK VERIFIED'); res. status (200). send (challenge);
+} else {
+res. status (403). end();
+H ;
 // Route for POST requests
-app.post('/', (req, res) => {
-  const timestamp = new Date().toISOString().replace('T', ' ').slice(0, 19);
-  console.log(`\n\nWebhook received ${timestamp}\n`);
-  console.log(JSON.stringify(req.body, null, 2));
-  res.status(200).end();
-});
-
-// Start the server
-app.listen(port, () => {
-  console.log(`\nListening on port ${port}\n`);
-});
+app-post/ (reg, res) = 1
+const timestamp = new Date(). toISoString(). replace('T', " ").slice(0, 19);
+console. log("\n\nwebhook received $(timestamp)\n*);
+console. log (JSON. stringify(req.body, null, 2)); res. status (200). end ();
+// Route for POST requests
+app. post'/', (req, res) = {
+const timestamp = new Date(). toISoString() •replace('T', ' ').slice (0, 19); console. log(' \n\nWebhook received ${timestamp}\n'); console. log(JSON.stringify(req-body, null, 2));
+res. status (200). end();
+}):
+app-get ("/health", (req, res) => {
+res.send ({
+"msg": "Sever is working fine"
+})
+app. listen (4000, () =>{
+console. log ("Sever is listening to port 40000");
+})
