@@ -14,7 +14,6 @@ const verifyToken = "qwerty";
 // Route for GET requests
 app.get('/', (req, res) => {
   const { 'hub.mode': mode, 'hub.challenge': challenge, 'hub.verify_token': token } = req.query;
-
   if (mode === 'subscribe' && token === verifyToken) {
     console.log('WEBHOOK VERIFIED');
     res.status(200).send(challenge);
@@ -33,5 +32,5 @@ app.post('/', (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  console.log(\nListening on port ${port}\n);
+  console.log(`\nListening on port ${port}\n`);
 });
